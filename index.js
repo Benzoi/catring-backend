@@ -9,9 +9,10 @@ const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const dapurRoutes = require('./routes/dapurRoutes');
 const pembeliRoutes = require('./routes/pembeliRoutes');
-const profileRoutes = require('./routes/profileRoutes');
+const ProfileRoutes = require('./routes/ProfileRoutes');
 
 const app = express();
+
 
 // Middleware
 app.use(cors());
@@ -22,7 +23,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/dapur', dapurRoutes);
 app.use('/api/pembeli', pembeliRoutes);
-app.use('/api/profile', profileRoutes);
+app.use('/api/profile', ProfileRoutes);
 
 
 app.get('/', (req, res) => {
@@ -30,6 +31,9 @@ app.get('/', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5001;
+    app.listen(PORT, () => {
+      console.log(`Server jalan di port ${PORT}`);
+    });
 
 const startServer = async () => {
     try {
